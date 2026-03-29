@@ -25,7 +25,7 @@ spec:
       - name: ecr-registry-secret
       containers:
       - name: frontend
-        image: hemanthuser/three-tier-frontend:11
+        image: hemanthuser/three-tier-frontend:2
         imagePullPolicy: Always
         env:
           - name: REACT_APP_BACKEND_URL
