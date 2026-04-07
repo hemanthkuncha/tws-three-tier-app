@@ -18,10 +18,10 @@ http://10.0.0.40:30101
 http://10.0.0.40:30102/api/tasks
 ```
 ***
-edit /etc/hosts -- >> 10.0.0.40 myapp.local (in the vm that browser able to route to that ip) -->> http://myapp.local:30102/api/tasks
+edit /etc/hosts -- >> 10.0.0.40 myapp.local (in the vm that browser able to route to that ip)
 
-now we can access frontend - http://myapp.local:30101 
-                             http://myapp.local:30102/api/tasks
+now we can access frontend - ```http://myapp.local:30101 
+                             http://myapp.local:30102/api/tasks```
 ___
 for solving the Hard-Port-Numbering: We need Ingress & LoadBalancer
 
