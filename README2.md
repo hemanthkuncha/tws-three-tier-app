@@ -26,6 +26,7 @@ now we can access :
 http://myapp.local:30101 
 http://myapp.local:30102/api/tasks
 ```
+#### NOTE: `Even if we use Only Nginx-Ingress, we still have to rely on the ingress controller exposed hard ports`
 ___
 ## k8s-nginx-ssl
 
