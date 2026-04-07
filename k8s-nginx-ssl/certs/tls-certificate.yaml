@@ -1,0 +1,19 @@
+# tls-certificate.yaml
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: myapp-tls
+  namespace: three-tier
+spec:
+  secretName: myapp-tls
+  duration: 8760h # 365 days
+  renewBefore: 720h # 30 days
+  subject:
+    organizations:
+      - myapp
+  commonName: myapp.local
+  dnsNames:
+    - myapp.local
+  issuerRef:
+    name: selfsigned-issuer
+    kind: ClusterIssuer
