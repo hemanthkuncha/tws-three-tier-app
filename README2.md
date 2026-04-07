@@ -1,26 +1,35 @@
 faced issue while frontend accessing the API from my browser (which is in diffrenet network)
 
-resolved it my exposing the api deployment and used the exposed port 
+resolved it by exposing the api deployment and used the exposed port
 
-Kubernetes-Manifests-file/Frontend/deployment.yaml
+kubernetes/frontend.yaml -- >> (http://<NODE_IP>:PORT/api/tasks)
 
-(http://<NODE_IP>:PORT/api/tasks)
+untill now used the hard coded ip values in (env) in frontend.yaml
 
-utill now used the hard coded ip value in as (env) in frontend/deployment.yaml
 when the deploying hardware ip changes then i have to rebuild the image to access the backend through browser due to the ENV is directly adding while build process
 
-now adding the ingress controller to cluster and using the routing paths to access
+and we can added a manual DNS entry in local
 
-adding the domain to /etc/hosts for testing purpose
+now we can access frontend - http://10.0.0.40:30101 
+                             http://10.0.0.40:30102/api/tasks
 
-"https://myapp.local:30101/api/tasks" -- refer -- three-tier-ingress.yaml   ( changed to https with direct acces to ingress due to in react app the url add during build time and it call from the browser not from the frontend pod/app )
+edit /etc/hosts -- >> 10.0.0.40 myapp.local (in the vm that browser able to route to that ip) -->> http://myapp.local:30102/api/tasks
 
+now we can access frontend - http://myapp.local:30101 
+                             http://myapp.local:30102/api/tasks
 
-no we can access frontend - https://myapp.local:30101 
-                            https://myapp.local:30101/api/tasks
+for solving the Hard-Port-Numbering: We need Ingress & LoadBalancer
 
-u need to expose nginx cotroller in http/https - 30100/30101
+adding the ingress controller to cluster and using the ingress routing paths to access
 
-create ssl certs then apply ingress.yml
+adding the metalLB baremetal to cluster and using ipPool to have Virtual LoadBalancer
 
-if ssl-redirect is false then both http&https works.
+now we can access frontend - http://myapp.local
+                             http://myapp.local:30102/api/tasks-----------------
+                             
+For SSL-TLS : HTTPS 
+1. Manual
+2. CertManager
+
+now we can access frontend - https://myapp.local
+                             https://myapp.local:30102/api/tasks
