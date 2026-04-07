@@ -1,4 +1,4 @@
-### k8s
+## k8s
 
 faced issue while frontend accessing the API from my browser (which is in diffrenet network)
 
@@ -28,7 +28,7 @@ http://myapp.local:30101
 http://myapp.local:30102/api/tasks
 ```
 ___
-### k8s-nginx-ssl
+## k8s-nginx-ssl
 
 for solving the Hard-Port-Numbering: We need Ingress & LoadBalancer
 
