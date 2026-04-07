@@ -4,7 +4,7 @@ faced issue while frontend accessing the API from my browser (which is in diffre
 
 resolved it by exposing the api deployment and used the exposed port
 
-kubernetes/frontend.yaml -- >> `(http://<NODE_IP>:PORT/api/tasks)`
+k8sfrontend.yaml -- >> `(http://<NODE_IP>:PORT/api/tasks)`
 
 ---
 untill now used the hard coded ip values in (env) in frontend.yaml
@@ -28,6 +28,8 @@ http://myapp.local:30101
 http://myapp.local:30102/api/tasks
 ```
 ___
+### k8s-nginx-ssl
+
 for solving the Hard-Port-Numbering: We need Ingress & LoadBalancer
 
 adding the ingress controller to cluster and using the ingress routing paths to access
