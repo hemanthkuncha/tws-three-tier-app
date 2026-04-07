@@ -18,7 +18,7 @@ edit /etc/hosts -- >> 10.0.0.40 myapp.local (in the vm that browser able to rout
 
 now we can access frontend - http://myapp.local:30101 
                              http://myapp.local:30102/api/tasks
-
+___
 for solving the Hard-Port-Numbering: We need Ingress & LoadBalancer
 
 adding the ingress controller to cluster and using the ingress routing paths to access
