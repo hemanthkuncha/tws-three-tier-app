@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: api
-        image: hemanthuser/three-tier-backend:4
+        image: hemanthuser/three-tier-backend-ssl:4
         imagePullPolicy: Always
         env:
           - name: MONGO_CONN_STR
