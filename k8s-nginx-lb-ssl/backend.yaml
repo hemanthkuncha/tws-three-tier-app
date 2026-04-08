@@ -64,8 +64,8 @@ spec:
   - port: 3500
     targetPort: 3500
     protocol: TCP
-    nodePort: 30102   
-  type: NodePort
-  #type: ClusterIP
+    #nodePort: 30102   
+  #type: NodePort
+  type: ClusterIP
   selector:
     role: api
