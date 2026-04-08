@@ -1,4 +1,19 @@
-# Real TLS Setup with Let's Encrypt, cert-manager, and DuckDNS
+## 🔐 SSL Management Strategy
+
+### ❌ Manual Method (Legacy/Testing)
+Previously, SSL was handled via OpenSSL:
+1. Generated `.key` and `.cert` manually.
+2. Created Kubernetes Secret: `kubectl create secret tls old-tls --key key.pem --cert cert.pem`.
+3. Cons: Manual renewal required, browsers show "Not Secure" warnings.
+
+### ✅ Automated Method (Production)
+Now handled by **cert-manager + DuckDNS Webhook**:
+1. Cert-manager detects the `tls` block in the Ingress.
+2. It requests a valid certificate from Let's Encrypt.
+3. It automatically stores the cert/key in the `myapp-tls-prod` secret.
+4. **Pros:** Fully trusted by browsers, automated 90-day renewals.
+
+## Real TLS Setup with Let's Encrypt, cert-manager, and DuckDNS
 
 This guide covers setting up **DNS-01** challenge validation for a Kubernetes cluster using **DuckDNS**. This method is preferred for local/home environments because it doesn't require opening Port 80 and supports internal IP addresses.
 
