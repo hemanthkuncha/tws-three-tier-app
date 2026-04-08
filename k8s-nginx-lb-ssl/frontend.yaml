@@ -29,7 +29,7 @@ spec:
         imagePullPolicy: Always
         env:
           - name: REACT_APP_BACKEND_URL
-            value: "https://myapp.local/api/tasks"
+            value: "https://mysite06.duckdns.org/api/tasks"
         ports:
         - containerPort: 3000
 ---
