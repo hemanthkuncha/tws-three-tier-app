@@ -75,7 +75,7 @@ pipeline {
     post{
         success{
             archiveArtifacts artifacts: '*.xml', followSymlinks: false
-            build job: "three-tier-cd", parameters: [
+            build job: "three-tier-cd-ssl", parameters: [
                 string(name: 'FRONTEND_DOCKER_TAG', value: "$BUILD_NUMBER"),
                 string(name: 'BACKEND_DOCKER_TAG', value: "$BUILD_NUMBER")
             ]
