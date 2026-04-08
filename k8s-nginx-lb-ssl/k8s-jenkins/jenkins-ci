@@ -52,11 +52,11 @@ pipeline {
             steps{
                 script{
                         dir('application-code/backend/'){
-                            docker_build("three-tier-backend","$BUILD_NUMBER","hemanthuser")
+                            docker_build("three-tier-backend-ssl","$BUILD_NUMBER","hemanthuser")
                         }
                     
                         dir('application-code/frontend'){
-                            docker_build("three-tier-frontend","$BUILD_NUMBER","hemanthuser")
+                            docker_build("three-tier-frontend-ssl","$BUILD_NUMBER","hemanthuser")
                         }
                 }
             }
@@ -65,8 +65,8 @@ pipeline {
         stage("Docker: Push to DockerHub"){
             steps{
                 script{
-                    docker_push("three-tier-backend","$BUILD_NUMBER","hemanthuser") 
-                    docker_push("three-tier-frontend","$BUILD_NUMBER","hemanthuser")
+                    docker_push("three-tier-backend-ssl","$BUILD_NUMBER","hemanthuser") 
+                    docker_push("three-tier-frontend-ssl","$BUILD_NUMBER","hemanthuser")
                 }
             }
         }

@@ -40,15 +40,15 @@ pipeline {
         stage("Update: Kubernetes manifests"){
             steps{
                 script{
-                    dir('kubernetes/'){
+                    dir('k8s-nginx-lb-ssl/'){
                         sh """
-                            sed -i -e s/three-tier-backend.*/three-tier-backend:${params.BACKEND_DOCKER_TAG}/g backend.yaml
+                            sed -i -e s/three-tier-backend-ssl.*/three-tier-backend-ssl:${params.BACKEND_DOCKER_TAG}/g backend.yaml
                         """
                     }
                     
-                    dir('kubernetes/'){
+                    dir('k8s-nginx-lb-ssl/'){
                         sh """
-                            sed -i -e s/three-tier-frontend.*/three-tier-frontend:${params.FRONTEND_DOCKER_TAG}/g frontend.yaml
+                            sed -i -e s/three-tier-frontend-ssl.*/three-tier-frontend-ssl:${params.FRONTEND_DOCKER_TAG}/g frontend.yaml
                         """
                     }
                     
