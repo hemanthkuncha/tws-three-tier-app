@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: duckdns-token-secret
+  namespace: cert-manager
+type: Opaque
+stringData:
+  token: d3c2310a-c2f7-465d-8fcc-19255f5d50f5
