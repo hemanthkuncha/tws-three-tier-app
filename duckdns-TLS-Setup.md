@@ -31,6 +31,12 @@ microk8s helm3 install cert-manager-duckdns-webhook csp33/cert-manager-duckdns-w
 2.2: Infrastructure Credentials -- Apply your DuckDNS token secret specifically in the `cert-manager` namespace.
 
 ```bash
+kubectl apply -f duck-dns-tocken
+```
+
+OR
+
+```bash
 microk8s kubectl create secret generic duckdns-token-secret \
   -n cert-manager \
   --from-literal=token=YOUR_TOKEN_HERE
