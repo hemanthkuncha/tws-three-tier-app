@@ -10,7 +10,7 @@ Cert-Manager - Automation for SSL certificates
 
 Helm3	- Used to install the DuckDNS Webhook
 
-### 1.2 Create nsmespace 
+### 1.2 Create namespace 
 ```bash
 kubectl create ns three-tier
 ```
